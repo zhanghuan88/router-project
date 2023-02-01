@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueRouter from '@/vue-router'
+import VueRouter from '@/vue-router/index'
 import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 
@@ -28,8 +28,11 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode:'hash',
+  mode:'history',
   routes
 })
 
+router.beforeEach((to,from,next)=>{
+  next();
+})
 export default router
